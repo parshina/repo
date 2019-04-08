@@ -220,8 +220,8 @@ function Field:tick()
   local isMove = help(self) -- проверяем ходы, при необходимости перемешиваем
   if (isMove == false) then
     print ("no movements\nlet's mix it\n")
-    while not isMove or isMatch do
-      self:mix()
+    while not isMove or isMatch do    -- зависает если невозможно выстроить такую комбинацию
+      self:mix()                      -- но добавлять лишнюю проверку кажется нецелесообразным
       isMatch = check_field(self)
       isMove = help(self)
     end
